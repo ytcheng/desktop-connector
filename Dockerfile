@@ -65,13 +65,13 @@ LABEL org.opencontainers.image.title="desktop-connector" \
     org.opencontainers.image.vendor="ytcheng." \
     com.docker.desktop.extension.icon="https://raw.githubusercontent.com/ytcheng/desktop-connector/main/connector.svg" \
     com.docker.desktop.extension.api.version=">=0.2.3" \
-    com.docker.extension.screenshots='[{"alt": "", "url": "https://raw.githubusercontent.com/ytcheng/desktop-connector/main/screenshot/1.jpg"},{"alt": "", "url": "https://raw.githubusercontent.com/ytcheng/desktop-connector/main/screenshot/2.jpg"}]' \
-    com.docker.extension.detailed-description="The Desktop Connector is an extension based on Tailscale that provides additional functionality for your container connections and access. With the Desktop Connector, you can create a secure virtual private network and connect your containers to it within minutes. Any containers with exposed ports are accessible to other devices on the Tailscale network.
-    The Desktop Connector adds the following features on top of Tailscale:
-
-    Direct container-to-container connectivity: Connect to containers directly using their IP addresses without exposing ports.
-    Domain name allocation: Assign unique domain names to each container for easier communication between containers and accessing them from the desktop.
-    <h3>About Tailscale</h3> Tailscale is a zero-config VPN that can be installed on any device in minutes, manages firewall rules for you, and works from anywhere. Regardless of the number of firewalls or containerization layers between devices, Tailscale ensures reliable connectivity. With robust access control rules enforced on each device, users on your network can only access what they are authorized to.
+    com.docker.extension.screenshots='[{"alt": "main page", "url": "https://raw.githubusercontent.com/ytcheng/desktop-connector/main/screenshot/1.jpg"},{"alt": "setting page", "url": "https://raw.githubusercontent.com/ytcheng/desktop-connector/main/screenshot/2.jpg"}]' \
+    com.docker.extension.detailed-description="The Desktop Connector is an extension based on Tailscale that provides additional functionality for your container connections and access. With the Desktop Connector, you can create a secure virtual private network and connect your containers to it within minutes. Any containers with exposed ports are accessible to other devices on the Tailscale network.\
+    The Desktop Connector adds the following features on top of Tailscale:\
+\
+    Direct container-to-container connectivity: Connect to containers directly using their IP addresses without exposing ports.\
+    Domain name allocation: Assign unique domain names to each container for easier communication between containers and accessing them from the desktop.\
+    <h3>About Tailscale</h3> Tailscale is a zero-config VPN that can be installed on any device in minutes, manages firewall rules for you, and works from anywhere. Regardless of the number of firewalls or containerization layers between devices, Tailscale ensures reliable connectivity. With robust access control rules enforced on each device, users on your network can only access what they are authorized to.\
     For more details, please visit <a href="https://tailscale.com">tailscale.com</a>." \
     com.docker.extension.publisher-url="https://github.com/ytcheng"\
     com.docker.extension.additional-urls='[{"title":"Website","url":"https://github.com/ytcheng/desktop-connector"}]'\
