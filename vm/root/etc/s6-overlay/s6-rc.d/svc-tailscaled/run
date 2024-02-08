@@ -1,0 +1,2 @@
+#!/command/execlineb -P
+/app/tailscaled --state=/var/lib/tailscale/tailscaled.state --tun=userspace-networking

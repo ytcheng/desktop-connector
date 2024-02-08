@@ -1,0 +1,14 @@
+. {
+    loop
+    log
+    debug
+    errors
+    docker unix://var/run/docker.sock {
+        domain loc
+        hostname_domain loc
+        label coredns.dockerdiscovery.host
+        network_aliases loc
+        compose_domain loc
+    }
+}
+

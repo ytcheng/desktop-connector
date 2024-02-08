@@ -1,0 +1,32 @@
+#!/bin/bash
+
+generate_dns_confs () {
+    # mkdir -p /config/coredns
+
+    if [[ -z "$DOMAIN_NAME" ]] ; then
+        DOMAIN_NAME="loc"
+    fi
+    if [[ -z "$HOSTNAME_DOMAIN_NAME" ]] ; then
+        HOSTNAME_DOMAIN_NAME="loc"
+    fi
+    if [[ -z "$LABEL_NAME" ]] ; then
+        LABEL_NAME="coredns.dockerdiscovery.host"
+    fi
+    if [[ -z "$DOCKER_NETWORK" ]] ; then
+        DOCKER_NETWORK="\"\""
+    fi
+    if [[ -z "$COMPOSE_DOMAIN_NAME" ]] ; then
+        COMPOSE_DOMAIN_NAME="loc"
+    fi
+    eval "$(printf %s)
+    cat <<DUDE > /config/coredns/Corefile
+$(cat /config/coredns/Corefile.template)
+
+DUDE"
+}
+
+if [[ -f /config/.corednsconfigfile ]]; then
+    . /config/.corednsconfigfile
+fi
+generate_dns_confs
+

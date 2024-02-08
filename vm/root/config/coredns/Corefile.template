@@ -1,0 +1,14 @@
+. {
+    loop
+    log
+    debug
+    errors
+    docker unix://var/run/docker.sock {
+        domain ${DOMAIN_NAME}
+        hostname_domain ${HOSTNAME_DOMAIN_NAME}
+        label ${LABEL_NAME}
+        network_aliases ${DOCKER_NETWORK}
+        compose_domain ${COMPOSE_DOMAIN_NAME}
+    }
+}
+

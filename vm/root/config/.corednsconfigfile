@@ -1,0 +1,5 @@
+DOMAIN_NAME="loc"
+HOSTNAME_DOMAIN_NAME="loc"
+LABEL_NAME="coredns.dockerdiscovery.host"
+DOCKER_NETWORK=""
+COMPOSE_DOMAIN_NAME="loc"

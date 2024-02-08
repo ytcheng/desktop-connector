@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Open Sans";
+    font-weight: 100 900;
+    src: url("./assets/fonts/open-sans-variable.ttf")
+      format("truetype-variations");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 100 900;
+    src: url("./assets/fonts/open-sans-italic-variable.ttf")
+      format("truetype-variations");
+  }
+
+  html,
+  body,
+  #root {
+    @apply font-sans text-base h-full antialiased;
+  }
+
+  body {
+    /**
+     * We apply some default values from Docker Desktop's default theme prior to
+     * version 4.9. This is overriden in the #root declaration below.
+     */
+    @apply bg-[#f4f4f6] dark:bg-[#202c33] text-[rgba(0,0,0,0.87)] dark:text-white p-0;
+  }
+
+  #root {
+    /**
+     * We override the body styles here to prevent Docker's theme
+     * from affecting us.
+     */
+    background-color: var(--dd-color-background);
+    color: var(--dd-text-color-primary);
+    padding: var(--dd-page-padding-top, 1.5rem)
+      var(--dd-page-padding-right, 1.5rem) var(--dd-page-padding-bottom, 1.5rem)
+      var(--dd-page-padding-left, 1.5rem);
+  }
+}
+
+@layer components {
+  .dropdown {
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  }
+  .dropdown[data-state="open"] {
+    @apply animate-scale-in;
+  }
+  .dropdown[data-state="closed"] {
+    @apply animate-scale-out;
+  }
+
+  .dialog-overlay[data-state="open"] {
+    @apply animate-fade-in;
+  }
+  .dialog-overlay[data-state="closed"] {
+    @apply animate-fade-out;
+  }
+  .dialog-content[data-state="open"] {
+    @apply animate-slide-in;
+  }
+  .dialog-content[data-state="closed"] {
+    @apply animate-slide-out;
+  }
+
+  .tooltip {
+    transform-origin: var(--radix-tooltip-content-transform-origin);
+  }
+  .tooltip[data-state="instant-open"][data-side="bottom"],
+  .tooltip[data-state="delayed-open"][data-side="bottom"] {
+    animation: tooltip-in-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tooltip[data-state="closed"][data-side="bottom"] {
+    animation: tooltip-out-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tooltip[data-state="instant-open"][data-side="top"],
+  .tooltip[data-state="delayed-open"][data-side="top"] {
+    animation: tooltip-in-top 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tooltip[data-state="closed"][data-side="top"] {
+    animation: tooltip-out-top 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes tooltip-in-top {
+    0% {
+      opacity: 0;
+      transform: translateY(10%) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%) scale(1);
+    }
+  }
+  @keyframes tooltip-out-top {
+    0% {
+      opacity: 1;
+      transform: translateY(0%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(10%) scale(0.95);
+    }
+  }
+
+  @keyframes tooltip-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(-10%) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%) scale(1);
+    }
+  }
+
+  @keyframes tooltip-out-bottom {
+    0% {
+      opacity: 1;
+      transform: translateY(0%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10%) scale(0.95);
+    }
+  }
+
+  /**
+   * .loading-dots creates a set of three dots that pulse for indicating loading
+   * states where a more horizontal appearance is helpful.
+   */
+  .loading-dots {
+    display: inline-flex;
+    align-items: center;
+  }
+  .loading-dots span {
+    animation-name: loading-dots-blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    width: 0.35em;
+    height: 0.35em;
+    border-radius: 50%;
+    background-color: currentColor;
+    display: inline-block;
+    margin: 0 0.15em;
+  }
+  .loading-dots span:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .loading-dots span:nth-child(3) {
+    animation-delay: 400ms;
+  }
+  @keyframes loading-dots-blink {
+    0% {
+      opacity: 0.2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  .help-text {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .code {
+    @apply font-mono bg-gray-800/5 dark:bg-white/5 px-1.5 py-0.5 rounded-lg;
+  }
+}
+
+@layer utilities {
+  .rendering-pixelated {
+    image-rendering: pixelated;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "icon": "connector.svg",
+  "vm": {
+    "composefile": "docker-compose.yaml",
+    "exposes": {
+      "socket": "backend.sock"
+    }
+  },
+  "ui": {
+    "dashboard-tab": {
+      "title": "desktop-connector",
+      "root": "/ui",
+      "src": "index.html"
+    }
+  },
+  "host": {
+    "binaries": [
+      {
+        "darwin": [
+          {
+            "path": "/darwin/hostname"
+          },
+          {
+            "path": "/darwin/host-tailscale"
+          }
+        ],
+        "windows": [
+          {
+            "path": "/windows/hostname.cmd"
+          },
+          {
+            "path": "/windows/host-tailscale.cmd"
+          }
+        ],
+        "linux": [
+          {
+            "path": "/linux/hostname.sh"
+          },
+          {
+            "path": "/linux/host-tailscale.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
